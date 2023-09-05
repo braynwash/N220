@@ -1,3 +1,24 @@
+// General Notes
+// Lets break down the structure!
+
+function meow() {
+ document.write("meow");
+}
+
+// This is a basic function! Functions act like codeblocks that contian several arguments for one procedure. The function specifies what it is, while "meow" is the name of the function.
+
+// This function is NOT doing anything! It can only be used when it is "called," like...
+
+meow();
+
+// The function will now do as asked!
+
+function cat(hiss) {
+ let hiss = "angry";
+}
+
+// "hiss" is a parameter! these are temporary variables that can be utilized in the function. parameters either can be specified within the function, or clarified later when the function is called.
+
 // Change text
 
 function changeTxt() {
@@ -75,7 +96,31 @@ console.log(hello(rt));
 
 // Multiple Values
 
-function test() {
-    return true;
-    return false;
+function totalRec(h,w) {
+    let perm = recPerm(h,w);
+    let area = h*w;
+    let recInfo = [perm, area]
+    return recInfo;
+}
+
+document.getElementById('multiAnswer').innerHTML = "Perimeter: " + totalRec(recHeight, recWidth)[0] + "<br> Area: " + totalRec(recHeight, recWidth)[1];
+
+// pop-up
+
+function myFunction() {
+    alert("Who goes there?");
+}
+
+// harry potter
+
+function wizard(name, job) {
+    document.getElementById('future').innerHTML = "Welcome " + name + ", the " + job + "!";
+}
+
+// last two
+
+function addItem() {
+    let item = prompt("Add Item:");
+    console.log(item);
+    alert("You added " + item + " to your list!");
 }

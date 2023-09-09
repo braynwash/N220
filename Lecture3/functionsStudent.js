@@ -13,9 +13,9 @@ meow();
 
 // The function will now do as asked!
 
-function cat(hiss) {
- let hiss = "angry";
-}
+// function cat(hiss) {
+//  let hiss = "angry";
+// }
 
 // "hiss" is a parameter! these are temporary variables that can be utilized in the function. parameters either can be specified within the function, or clarified later when the function is called.
 

@@ -23,7 +23,25 @@ h1, h2, h3, h4, h5, h6, p {
     height: 150px;
     width: 500px;
     margin: 30px 10px; 
-    padding-left: 50px;
-    display: flex;
-    align-items: center;
+    text-align: right;
+}
+
+.body input {
+    margin-top: 15px;
+    margin-right: 200px;
+}
+
+.body label {
+    padding: 10px;
+}
+
+.body h1 {
+    text-align: left;
+    padding-top: 15px;
+    margin-left: 35px;
+}
+
+.body p {
+    text-align: left;
+    margin-left: 35px;
 }

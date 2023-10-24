@@ -4,4 +4,4 @@
 
 ### Assignment Five
 
-**Github link:** https://github.com/braynwash/N220/tree/main/homework-five
+**Github link:** https://in-info-web4.informatics.iupui.edu/~jereblac/N220/homework-five/

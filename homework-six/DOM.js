@@ -1,4 +1,5 @@
-let list = document.querySelector('ul')
+let list = document.querySelector('ul');
+let listItems = document.querySelector('li');
 
 //1 
 document.getElementById("title").innerHTML = "DOM Manipulation";
@@ -31,10 +32,10 @@ let nameLiText = document.createTextNode("Jeremy Black");
 nameLi.appendChild(nameLiText);
 list.appendChild(nameLi);
 
-//9
+//9 
+document.getElementsByTagName('li')[3].style.display="none";
 
-
-//10 Add a italic element around the button text and make the background rebeccapurple with white text and a white border.
+//10 
 document.querySelector('button').style.backgroundColor="rebeccapurple";
 document.querySelector('button').style.color="white";
 document.querySelector('button').style.borderColor="white";

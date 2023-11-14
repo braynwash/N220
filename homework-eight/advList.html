@@ -226,36 +226,40 @@
                         var newLI = document.createElement('li');
                         var newLIText = document.createTextNode(newItem);
                         newLI.appendChild(newLIText);
-                        newLI.appendChild(trashIcon);
+                        newLI.appendChild(trashIcon); //adds trash icon to new items
                         myList.appendChild(newLI);
                     }
+
+                    //---add trash icon to existing list items---
 
                     let myItems = document.querySelectorAll('#codeBox li');
                     var totalItems = myItems.length;
 
                     for (let i = 0; i < totalItems; i++) {
-                        console.log("Hello!");
+                        console.log("The loop is looping!");
                         var trashIcon = document.createElement('img');
                         trashIcon.setAttribute("src", "https://s3-us-west-2.amazonaws.com/s.cdpn.io/27019/trashcanIcon.png");
                         trashIcon.classList.add("listIcon");
                         myItems[i].appendChild(trashIcon);
                     }
 
+                    //---add select + delete functionality---
+
                 myList.addEventListener('click', changeProp, false);
 
                     function changeProp(e) {
                         var target = getTarget(e);
                         var tParent = target.parentNode;
-                        if (tParent.tagName == 'LI') {
+                        if (tParent.tagName == 'LI') { //checks for the icon to be clicked
                         tParent.remove();
                         console.log("Removed the item!");
-                        } if (target.tagName == 'LI') {
-                            if (target.classList == "selected") {
+                        } if (target.tagName == 'LI') { //checks for the list item to be clicked
+                            if (target.classList == "selected") { //checks to see if list item is greyed out
                             target.classList.remove("selected");
                             console.log("Unselected!");
-                            } else {
+                            } else { //if item is not greyed out BUT is a list item
                             target.classList.add("selected"); 
-                            console.log("Selected!");   
+                            // console.log("Selected!");   
                             }
                         }
                     }

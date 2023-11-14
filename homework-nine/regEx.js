@@ -4,18 +4,16 @@ let ccText = document.getElementById('ccard');
 let phoneText = document.getElementById('phone');
 
 function validateString() {
-    let vs1 =/ralph/i;
-    let vs2 = /^cat/;
-    let vs3 =/(dog)$/;
+    let vs1 =/Jeremy/;
     let stringVal = stringText.value;
-    document.getElementById('stringAns').innerHTML = vs3.test(stringVal);
+    document.getElementById('stringAns').innerHTML = vs1.test(stringVal);
 }
 
 stringText.addEventListener('blur', validateString);
 
 function validateZip() {
     let zipVal = zipText.value;
-    let vz1 =/^([0-9]{5})([0-9]{4})?$/;
+    let vz1 =/^([0-9]{5})([- ]?)([0-9]{4})?$/;
     document.getElementById('zipAns').innerHTML = vz1.test(zipVal);
 }
 

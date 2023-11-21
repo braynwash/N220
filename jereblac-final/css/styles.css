@@ -28,6 +28,10 @@ a {
 a:hover {
     color: rgb(111, 157, 184);
     font-weight: bold;
+} 
+a:visited {
+    color: rgb(111, 157, 184);
+    font-weight: bold;
 }
 
 .bodyHolder {

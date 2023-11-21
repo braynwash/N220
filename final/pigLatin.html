@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ <meta charset="UTF-8" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Pig Latin</title>
+ </head>
+ <body>
+    <h1>Pig Latin Name Generator</h1>
+    <input style="margin-bottom:5px;" type="text" name="fName" id="fName" placeholder="What is your first name?">
+    <input style="display:block;margin-bottom:5px;" type="text" name="lName" id="lName" placeholder="What is your last name?">
+    <button onclick="pigName()">Get Name!</button>
+    <h2 id="input"></h2>
+    <h2 id="output"></h2>
+ </body>
+ <script>
+   function pigName() {
+      let fName = document.getElementById('fName').value;
+      let lName = document.getElementById('lName').value;
+      if (fName === "" || lName=== "") { //checks to see if an input was given- runs an error msg if one value is blank.
+         document.getElementById('input').innerHTML = "Please input a name!";
+      } else {
+         document.getElementById('input').innerHTML = "Given name: " + fName + " " + lName;
+         let fLower = fName.toLowerCase();
+         let lLower = lName.toLowerCase();
+         let fCharacter = fLower.charAt(0);
+         let newFirst = fName.slice(1);
+         let lCharacter = lLower.charAt(0);
+         let newLast = lName.slice(1);
+         let fullfChar = newFirst.charAt(0);
+         let cutFirst = newFirst.slice(1);
+         let fulllChar = newLast.charAt(0);
+         let cutLast = newLast.slice(1);
+         let fullfUpper = fullfChar.toUpperCase();
+         let fulllUpper = fulllChar.toUpperCase();
+         let fullFirst = fullfUpper + cutFirst + fCharacter + "ay";
+         let fullLast = fulllUpper + cutLast + lCharacter + "ay";
+        document.getElementById('output').innerHTML = "Your pig latin name is " + fullFirst + " " + fullLast + ".";
+      }
+      
+   }
+ </script>
+</html>

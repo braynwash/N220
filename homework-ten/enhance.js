@@ -7,20 +7,21 @@ passBtn.addEventListener("click", showPassword);
 function showPassword() {
   var imgSrc = passBtn.getAttribute("src");
   var hidePassImg = imgSrc.indexOf("hide");
-  console.log(hidePassImg);
-  hidePassImg = hidePassImg < 0;
-  if ((hidePassImg = true)) {
-    //if hide img is present
-    document;
+  if (hidePassImg !== -1) {
+    //^ if the index of the image is the index of the HIDDEN EYE image
     passBtn.setAttribute(
       "src",
       "https://s3-us-west-2.amazonaws.com/s.cdpn.io/27019/showPassIcon.png"
     );
-    document.getElementById("pass").setAttribute("type", "text");
+    pass.setAttribute("type", "text");
+    console.log("Shown!");
   } else {
+    //^ if the index of the image is 51
     passBtn.setAttribute(
       "src",
       "https://s3-us-west-2.amazonaws.com/s.cdpn.io/27019/hidePassIcon.png"
     );
+    pass.setAttribute("type", "password");
+    console.log("Hidden!");
   }
 }

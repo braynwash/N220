@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ <meta charset="UTF-8" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Generation Finder</title>
+ </head>
+ <body>
+    <h1>Generation Finder</h1>
+    <input style="margin-bottom:5px;" type="text" name="userAge" id="userAge" placeholder="How old are you?">
+    <button onclick="getGen()">Find your generation!</button>
+    <h2 id="input"></h2>
+    <h2 id="output"></h2>
+ </body>
+ <script>
+    var input = document.getElementById("input");
+    var output = document.getElementById("output");
+    getGen = () => {
+    let userAge = document.getElementById('userAge').value; 
+    let userYear = 2023 - userAge;
+
+    input.innerHTML = `Your age: ${userAge}.`;
+    output.innerHTML = `You were born in ${userYear}. `
+
+    switch (true) {
+        case userYear >= 1946 && userYear <= 1964:
+            output.innerHTML += "<em>You are a member of the Baby Boomer Generation!</em>";
+            break;
+        case userYear >= 1965 && userYear <= 1980:
+            output.innerHTML += "<em>You are part of Generation X!</em>";
+            break;
+        case userYear >= 1981 && userYear <= 1996:
+            output.innerHTML += "<em>You belong in the Y Generation!</em>";
+            break;
+        case userYear >= 1997 && userYear <= 2012:
+            output.innerHTML += "<em>Generation Z is your generation!</em>";
+            break;
+        case userYear >= 2013 && userYear <= 2025:
+            output.innerHTML += "<em>You are part of Generation Alpha.</em>";
+            break;
+        default:
+            output.innerHTML += "<em>Sorry- your generation is not listed.</em>";
+    }
+    }
+ </script>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ <meta charset="UTF-8" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Login Page</title>
+ <style>
+    * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+    }
+    html, body {
+     height: 100%;
+     background-color: grey;
+    }
+    h1, h2, h3, h4, h5, h6, p {
+     margin-bottom: 16px
+    }
+    .loginWrap {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .formBox {
+        background-color: white;
+        border: 5px solid black;
+        width: 350px;
+        height: 400px;
+        padding: 10px;
+    }
+    input {
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        height: 25px;
+        padding: 5px;
+    }
+    label {
+        font-size: 20px;
+    }
+    button {
+        width: 100px;
+        height: 25px;
+    }
+    p {
+        color: red;
+    }
+ </style>
+ </head>
+ <body>
+    <div class="loginWrap">
+        <div class="formBox">
+            <h1>Register Now</h1>
+            <form>
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="pw">
+                <p id="passError">Must be between 8-10 characters.</p>
+                <label for="password">Confirm password:</label>
+                <input type="password" name="password" id="cpw"> <p id="confirmError">Passwords much match.</p>
+                <button id="register" onclick="register()">Register</button>
+            </form>
+            
+        </div>
+        <div class="formBox">
+            <h1>Login</h1>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username">
+            <label for="password">Password:</label>
+                <input type="password" name="password" id="pw">
+            <p id="loginError">Your login information does not match any on file. Please try again.</p>
+            <button id="login" onclick="login()">Login</button>
+        </div>
+    </div>
+    <script src="login.js"></script>
+ </body>
+</html>

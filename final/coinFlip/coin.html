@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coin Flip Game</title>
+    <style>
+        img {
+            width: 200px;
+        }
+        table {
+            margin-top: 25px;
+            background-color: black;
+        }
+        tr {
+            background-color: white;
+        }
+        th {
+            padding: 5px 20px;
+            background-color: rgb(177, 177, 177);
+        }
+    </style>
+  </head>
+  <body>
+    <h1>Coin Flip Game</h1>
+    <p>Press the button to flip the coin!</p>
+    <img id="coin" src=""></img>
+    <h3 id="coinResult"></h3>
+    <button onclick="headsTails()">Flip!</button>
+    <table>
+        <tr>
+        <th>Flips</th> 
+        <th>Results</th>
+        </tr>
+    </table>
+ <script src="coin.js"></script>
+</body>
+</html>

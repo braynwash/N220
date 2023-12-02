@@ -7,7 +7,7 @@ let flips = 0; //sets initial flips to 0
 headsTails = () => {
   flips += 1; //increases flips each time button is clicked
   let headsTails = Math.floor(Math.random() * 2) + 1;
-  //   console.log(headsTails);
+  console.log(headsTails);
   if (headsTails == 1) {
     //heads is 1
     var result = "Heads";
@@ -18,7 +18,6 @@ headsTails = () => {
     coinImg.setAttribute("src", "images/tails.png");
   }
   coinResult.innerText = `You got ${result}!`;
-  console.log(flips);
   resultTable.innerHTML += `
   <tr>
   <td>${flips}</td> 

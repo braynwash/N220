@@ -29,10 +29,12 @@
     console.log(random);
 
     guess = () => {
+        //initial vars
         let userInput = document.getElementById('userNum').value;
         let userNum = parseInt(document.getElementById('userNum').value);
         input.innerText = `You guessed: ${userNum}`;
 
+        //checks guesses
         if (userInput === "" || userNum > 100 || userNum < 0) { //checks for improper inputs
             input.innerText = ``;
             result.innerText = "Please input a number between 1-100!";
@@ -48,16 +50,16 @@
             document.getElementById('attempts').innerText = `Number of guesses left: ${attempts}`;
         } 
 
-        //checks for attempts seperately
+        //checks for attempts
         if (attempts == 0) {
             var playAgain = window.confirm("You've run out of guesses!\n Would you like to play again with a new number?");
             if (playAgain) { //if user hits "ok"
-                random = rNum();
+                random = rNum(); //new random num generated
                 console.log(random);
-                attempts = 5;
+                attempts = 5; 
                 document.getElementById('attempts').innerText = `Number of guesses left: ${attempts}`;
-                return attempts;
-            } else { //if user hits cancel
+                return attempts; //returns 5 new attempts
+            } else { //if user hits "cancel"
                 document.querySelector('button').disabled = true;
                 input.innerText = "";
                 result.innerText = "You ran out of tries. Thanks for playing!";

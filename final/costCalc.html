@@ -6,11 +6,25 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
  <title>Cost Calculator</title>
  <style>
-
+    table {
+        height: 70px;
+        background-color: black;
+    }
+    th {
+        background-color: rgb(184, 184, 184);
+    }
+    td {
+        background-color: white;
+        padding: 10px;
+    }
+    input {
+        display: block;
+        margin-bottom: 10px;
+    }
  </style>
  </head>
  <body>
-    <h1>TODAY'S CODES</h1>
+    <h1>This Week's Codes</h1>
     <table>
         <tr>
             <th>5% Off</th>
@@ -23,5 +37,62 @@
             <td>TURKEY20</td>
         </tr>
     </table>
+    <h2>Cost Calculator</h2>
+    <input type="text" name="userPrice" id="userPrice" placeholder="Price of item">
+    <input type="text" name="userCode" id="userCode" placeholder="Discount code">
+    <button onclick="findPrice()">New Price</button>
+    <p id="input"></p>
+    <p id="output"></p>
  </body>
+ <script>
+ //changes discount code to all uppercase when clicked off
+var code = document.getElementById('userCode');
+changeToUpper = () => `${(code.style.textTransform = "uppercase")}`; 
+code.addEventListener("blur", changeToUpper);
+
+//vars for the html
+var input = document.getElementById("input");
+var output = document.getElementById("output");
+
+//vars for calculations
+var tax = 0.08;
+var salespls = 0.05;
+var super15 = 0.15;
+var turkey20 = 0.20;
+let initPrice;
+
+findPrice = () => {
+    let userPrice = parseFloat(document.getElementById('userPrice').value);
+    let userCode = document.getElementById('userCode').value;
+    
+    input.innerHTML = `Your initial price was $${userPrice}, and you used code ${userCode.toUpperCase()}`;
+
+    //check if the user's discount code is valid and calculate
+    if (userCode == "SALESPLS" || userCode == "salespls") {
+        let initPrice = userPrice - (userPrice * salespls);
+        let finalPrice = initPrice + (initPrice * tax);
+        let savings = userPrice - initPrice;
+        output.innerHTML = `Your total: $${finalPrice.toFixed(2)} <br> You saved $${savings.toFixed(2)}!`; 
+    } else if (userCode == "SUPER15" || userCode == "super15") {
+        let initPrice = userPrice - (userPrice * super15);
+        let finalPrice = initPrice + (initPrice * tax);
+        let savings = userPrice - initPrice;
+        output.innerHTML = `Your total: $${finalPrice.toFixed(2)} <br> You saved $${savings.toFixed(2)}!`; 
+    } else if (userCode == "TURKEY20" || userCode == "turkey20") {
+        let initPrice = userPrice - (userPrice * turkey20);
+        let finalPrice = initPrice + (initPrice * tax);
+        let savings = userPrice - initPrice;
+        output.innerHTML = `Your total: $${finalPrice.toFixed(2)} <br> You saved $${savings.toFixed(2)}!`; 
+    } else {
+        input.innerHTML = `Your initial price was $${userPrice}, and you didn't use a discount code.`;
+        let finalPrice = userPrice + (userPrice * tax);
+        output.innerHTML = `Your total: $${finalPrice.toFixed(2)} <br> Since you didn't use a discount code, you didn't save.`;
+    }
+    
+}
+
+//DISCOUNT FORMULA: Original Price - (Original price × Discount %)
+//SAVINGS: Saving = Original price - Price after discount
+ </script>
 </html>
+

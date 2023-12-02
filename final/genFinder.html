@@ -10,15 +10,17 @@
     <h1>Generation Finder</h1>
     <input style="margin-bottom:5px;" type="text" name="userAge" id="userAge" placeholder="How old are you?">
     <button onclick="getGen()">Find your generation!</button>
-    <h2 id="input"></h2>
-    <h2 id="output"></h2>
+    <p id="input"></p>
+    <p id="output"></p>
  </body>
  <script>
+    //vars for the html
     var input = document.getElementById("input");
-    var output = document.getElementById("output");
+    var output = document.getElementById("output"); 
+
     getGen = () => {
     let userAge = document.getElementById('userAge').value; 
-    let userYear = 2023 - userAge;
+    let userYear = 2023 - userAge; //finds the year a user was born by subtracting 2023 by their age
 
     input.innerHTML = `Your age: ${userAge}.`;
     output.innerHTML = `You were born in ${userYear}. `

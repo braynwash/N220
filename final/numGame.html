@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ <meta charset="UTF-8" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Number Game</title>
+ </head>
+ <body>
+    <h1>Number Game</h1>
+    <h3>Guess a number between 1-100!</h3>
+    <input type="text" placeholder="1-100" id="userNum">
+    <p id="attempts">Number of guesses left: </p>
+    <button onclick="guess()">Make your guess!</button>
+    <p id="input"></p>
+    <p style="color: red;" id="result"></p>
+ </body>
+ <script>
+    var input = document.getElementById('input');
+    var result = document.getElementById('result');
+
+    //initial number of tries 
+    let attempts = 5; 
+    document.getElementById('attempts').innerText += ` ${attempts}`; 
+
+    //random number generator
+    rNum = () => {return Math.floor(Math.random() * 100) + 1};
+    random = rNum();
+    console.log(random);
+
+    guess = () => {
+        let userInput = document.getElementById('userNum').value;
+        let userNum = parseInt(document.getElementById('userNum').value);
+        input.innerText = `You guessed: ${userNum}`;
+
+        if (userInput === "" || userNum > 100 || userNum < 0) { //checks for improper inputs
+            input.innerText = ``;
+            result.innerText = "Please input a number between 1-100!";
+        } else if (userNum == random) { //correct guess
+            result.innerHTML = "<p style='color: green;'>Congratulations, you guessed the number correctly!</p>";
+        } else if (userNum !== random) {
+            if (userNum < random) { //too low
+                result.innerText = "Unfortunately, your guess was too low. Try again!";
+            } else { //too high
+                result.innerText = "Unfortunately, your guess was too high. Try again!";
+            }
+            attempts -= 1;
+            document.getElementById('attempts').innerText = `Number of guesses left: ${attempts}`;
+        } 
+
+        //checks for attempts seperately
+        if (attempts == 0) {
+            var playAgain = window.confirm("You've run out of guesses!\n Would you like to play again with a new number?");
+            if (playAgain) { //if user hits "ok"
+                random = rNum();
+                console.log(random);
+                attempts = 5;
+                document.getElementById('attempts').innerText = `Number of guesses left: ${attempts}`;
+                return attempts;
+            } else { //if user hits cancel
+                document.querySelector('button').disabled = true;
+                input.innerText = "";
+                result.innerText = "You ran out of tries. Thanks for playing!";
+            }
+        }
+    }
+
+ </script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        form {
+          border: 2px solid black;
+          width: 600px;
+          padding: 15px;
+          margin-bottom: 20px;
+        }
+        input {
+            margin-bottom: 10px;
+        }
+        h1 {
+            margin-top: 0px;
+        }
+        p {
+            display:inline
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h1>Register</h1>
+        <label for="Cusername">Username: </label> 
+        <input type="text" name="Cusername" id="Cusername"> <br>
+        <label for="Cpassword">Password: </label> 
+        <input type="password" name="Cpassword" id="Cpw"> 
+        <p class="error" id="CpassError"></p> <br>
+        <label for="confirm">Confirm Password: </label> 
+        <input type="password" name="confirm" id="confirm"> 
+        <p class="error" id="confirmError"></p> <br>
+        <button onclick="register()">Register</button>
+        <p id="regComplete"></p>
+    </form>
+    <form>
+        <h1>Log in</h1>
+        <label for="username">Username: </label> 
+        <input type="text" name="username" id="username"> 
+        <p class="error" id="userError"></p> <br>
+        <label for="password">Password: </label> 
+        <input type="password" name="password" id="password"> 
+        <p class="error" id="userError"></p><br>
+        <button onclick="login()">Login</button>
+        <p id="logComplete"></p>
+    </form>
+</body>
+</html>

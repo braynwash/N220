@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <style>
+        * {
+            font-family: Arial;
+        }
+        div {
+            border: 2px solid rgb(173, 173, 173);
+            width: 650px;
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        p {
+            display: inline;
+            margin-left: 10px;
+        }
+        .error {
+            color: red;
+        }
+        button, input, select {
+            margin-bottom: 15px;
+        }
+        #reset {
+            margin-left: 10px;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>Register for an account</h1>
+    <form>
+    <div>
+        <h2>Account Information</h2>
+        <label for="email">E-mail: </label> 
+        <input type="text" name="email" id="email"> 
+        <p id="emailError">Must be a valid email address.</p> <br>
+        <label for="password">Password: </label> 
+        <input type="password" name="password" id="pw"> 
+        <p id="pwError">Must be at least 6 characters.</p> <br>
+        <label for="confirm">Verify Password: </label> 
+        <input type="password" name="confirm" id="confirm"> 
+        <p class="error" id="confirmError"></p> <br>
+    </div>
+    <div>
+        <h2>Contact Information</h2>
+        <label for="fName">First Name: </label> 
+        <input type="text" name="fName" id="fName"> 
+        <p class="error" id="fError"></p> <br>
+        <label for="lName">Last Name: </label> 
+        <input type="text" name="lName" id="lName"> 
+        <p class="error" id="lError"></p> <br>
+        <label for="address">Address: </label> 
+        <input type="text" name="address" id="address"> 
+        <p class="error" id="addressError"></p> <br>
+        <label for="city">City: </label> 
+        <input type="text" name="city" id="city"> 
+        <p class="error" id="cityError"></p> <br>
+        <label for="state">State: </label> 
+        <input type="text" name="state" id="state"> 
+        <p id="stateError">Use 2 character abbreviation.</p> <br>
+        <label for="zip">ZIP Code: </label> 
+        <input type="text" name="zip" id="zip"> 
+        <p id="zipError">Use 5 or 9 digit ZIP code.</p> <br>
+        <label for="phone">Phone Number: </label> 
+        <input type="text" name="phone" id="phone"> 
+        <p id="phoneError">Use 999-999-9999 format.</p> <br>
+    </div>
+    <div>
+        <h2>Payment Information</h2>
+        <label for="type">Card Type: </label> 
+        <select name="type" id="type">
+            <option value="empty">Select One</option>
+            <option value="MasterCard">MasterCard</option>
+            <option value="Visa">Visa</option>
+            <option value="Visa">Discover</option>
+        </select> 
+        <p class="error" id="typeError"></p> <br>
+        <label for="cardNum">Card Number: </label> 
+        <input type="text" name="cardNum" id="cardNum"> 
+        <p id="cardNumError">Use 1111-2222-3333-4444 format.</p> <br>
+        <label for="exp">Expiration Date: </label> 
+        <input type="text" name="exp" id="exp"> 
+        <p id="expError">Use mm/yyyy format.</p> <br>
+    </div>
+    <div>
+        <h2>Submit Registration</h2>
+        <input type="submit" id="submit" value="Submit"></input>
+        <input type="submit" id="reset" value="Reset"></input>
+    </div>
+    </form>
+ <script src="form.js"></script>
+</body>
+</html>

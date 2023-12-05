@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grade Finder</title>
+    <style>
+    table {
+    background-color: black;
+    }
+    tr {
+    background-color: white;
+    }
+    td {
+    padding: 5px;
+    }
+    th {
+    padding: 5px;
+    background-color: rgb(143, 143, 143);
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Grade Finder</h1>
+    <p>From a 0 - 500 point scale, we'll find your letter grade!</p>
+    <input type="text" placeholder="Point total" id="gradeInput">
+    <button>Your Grade</button>
+    <p id="userPoints"></p>
+    <p id="userPercent"></p>
+    <table>
+        <th colspan="2">Grading Scale</th>
+    </table>
+ <script src="grade.js"></script>
+</body>
+</html>

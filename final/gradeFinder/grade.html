@@ -19,14 +19,23 @@
     padding: 5px;
     background-color: rgb(143, 143, 143);
     }
+    input {
+      margin-bottom: 10px;
+    }
+    .error {
+      color: red;
+    }
+    .selected {
+      background-color: red;
+    }
     </style>
   </head>
   <body>
     <h1>Grade Finder</h1>
     <p>From a 0 - 500 point scale, we'll find your letter grade!</p>
     <input type="text" placeholder="Point total" id="gradeInput">
-    <button>Your Grade</button>
-    <p id="userPoints"></p>
+    <button onclick="calcGrade()">Your Grade</button>
+    <div id="userPoints"></div>
     <p id="userPercent"></p>
     <table>
         <th colspan="2">Grading Scale</th>

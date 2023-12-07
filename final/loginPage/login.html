@@ -23,6 +23,9 @@
         .error {
             color: red;
         }
+        .bold {
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -36,19 +39,19 @@
         <label for="confirm">Confirm Password: </label> 
         <input type="password" name="confirm" id="confirm"> 
         <p class="error" id="confirmError"></p> <br>
-        <button onclick="register()">Register</button>
-        <p id="regComplete"></p>
+        <input type="submit" value="Register">
+        <div id="regComplete"></div>
     </form>
     <form>
         <h1>Log in</h1>
         <label for="username">Username: </label> 
-        <input type="text" name="username" id="username"> 
-        <p class="error" id="userError"></p> <br>
+        <input type="text" name="username" id="username"> <br>
         <label for="password">Password: </label> 
-        <input type="password" name="password" id="password"> 
-        <p class="error" id="userError"></p><br>
-        <button onclick="login()">Login</button>
-        <p id="logComplete"></p>
+        <input type="password" name="password" id="pw"> 
+        <br>
+        <input type="submit" value="Login">
+        <div class="error" id="logComplete"></div>
     </form>
+    <script src="login.js"></script>
 </body>
 </html>

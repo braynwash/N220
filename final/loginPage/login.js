@@ -71,6 +71,7 @@ login = () => {
 
   if (loginValid) {
     logComplete.classList.remove("error");
+    regComplete.classList.add("bold");
     logComplete.innerText = `Congratulations! You are logged in.`;
   }
 };

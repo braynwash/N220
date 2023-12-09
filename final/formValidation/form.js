@@ -8,6 +8,60 @@
 // Credit card must consist of 12 numbers
 // After the user clicks the submit button, all the fields are validated. If there are any errors, the errors will appear next to the respective input field.
 
+//state array for loop
+const states = [
+  "IN",
+  "HI",
+  "ID",
+  "CA",
+  "CO",
+  "TX",
+  "FL",
+  "GA",
+  "LA",
+  "ME",
+  "DE",
+  "IL",
+  "AL",
+  "AR",
+  "IA",
+  "CT",
+  "AK",
+  "AZ",
+  "KS",
+  "OH",
+  "OK",
+  "NC",
+  "MA",
+  "MI",
+  "MN",
+  "MS",
+  "WI",
+  "SD",
+  "PA",
+  "RI",
+  "SC",
+  "WV",
+  "TN",
+  "MO",
+  "MT",
+  "UT",
+  "VT",
+  "ND",
+  "OR",
+  "VA",
+  "WA",
+  "WY",
+  "NE",
+  "NV",
+  "NH",
+  "NJ",
+  "KY",
+  "MD",
+  "NM",
+  "NY",
+];
+
 //---input ids---
 //account
 var email = document.getElementById("email");
@@ -49,8 +103,14 @@ validForm = () => {
   let validForm = true;
   //---account---
   //email
-  if (email.value == "") {
+  let emailVal = email.value;
+  let validEmail = /^([a-zA-Z0-9!#$%.]+)@([a-zA-Z0-9-]+).([a-zA-Z]{2,})$/;
+  if (emailVal == "") {
     emailError.innerText = "Please fill out this field!";
+    emailError.classList.add("error");
+    validForm = false;
+  } else if (!validEmail.test(emailVal)) {
+    emailError.innerText = "Please use a valid email address.";
     emailError.classList.add("error");
     validForm = false;
   } else {
@@ -58,8 +118,14 @@ validForm = () => {
     emailError.classList.remove("error");
   }
   //pw
-  if (pw.value == "") {
+  let pwVal = pw.value;
+  let validPW = /^.{8,10}$/;
+  if (pwVal == "") {
     pwError.innerText = "Please fill out this field!";
+    pwError.classList.add("error");
+    validForm = false;
+  } else if (!validPW.test(pwVal)) {
+    pwError.innerText = "Password must be between 8-10 characters.";
     pwError.classList.add("error");
     validForm = false;
   } else {
@@ -69,6 +135,10 @@ validForm = () => {
   //confirm
   if (confirm.value == "") {
     confirmError.innerText = "Please fill out this field!";
+    confirmError.classList.add("error");
+    validForm = false;
+  } else if (confirm.value != pwVal) {
+    confirmError.innerText = "Passwords must match.";
     confirmError.classList.add("error");
     validForm = false;
   } else {
@@ -113,17 +183,34 @@ validForm = () => {
     cityError.classList.remove("error");
   }
   //state
-  if (state.value == "") {
+  let stateGet = state.value;
+  let stateVal = stateGet.toUpperCase();
+  let validState = /^[A-Za-z]{2}$/;
+  if (stateVal == "") {
     stateError.innerText = "Please fill out this field!";
+    stateError.classList.add("error");
+    validForm = false;
+  } else if (!validState.test(stateVal)) {
+    stateError.innerText = "Please use state abbreviations.";
+    stateError.classList.add("error");
+  } else if (!states.includes(stateVal)) {
+    stateError.innerText = "Please input a real state.";
     stateError.classList.add("error");
     validForm = false;
   } else {
     stateError.innerText = " ";
     stateError.classList.remove("error");
   }
+
   //zip
-  if (zip.value == "") {
+  let zipVal = zip.value;
+  let validZip = /^\d{5}$/;
+  if (zipVal == "") {
     zipError.innerText = "Please fill out this field!";
+    zipError.classList.add("error");
+    validForm = false;
+  } else if (!validZip.test(zipVal)) {
+    zipError.innerText = "Please use a 5 digit zip code.";
     zipError.classList.add("error");
     validForm = false;
   } else {
@@ -131,8 +218,14 @@ validForm = () => {
     zipError.classList.remove("error");
   }
   //phone
-  if (phone.value == "") {
+  let phoneVal = phone.value;
+  let validPhone = /^\d{3}-\d{3}-\d{4}$/;
+  if (phoneVal == "") {
     phoneError.innerText = "Please fill out this field!";
+    phoneError.classList.add("error");
+    validForm = false;
+  } else if (!validPhone.test(phoneVal)) {
+    phoneError.innerText = "Please use a valid phone number.";
     phoneError.classList.add("error");
     validForm = false;
   } else {
@@ -150,8 +243,14 @@ validForm = () => {
     typeError.classList.remove("error");
   }
   //cardNum
-  if (cardNum.value == "") {
+  let cardValue = cardNum.value;
+  let validCard = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
+  if (cardValue == "") {
     cardError.innerText = "Please fill out this field!";
+    cardError.classList.add("error");
+    validForm = false;
+  } else if (!validCard.test(cardValue)) {
+    cardError.innerText = "Please use a valid card.";
     cardError.classList.add("error");
     validForm = false;
   } else {
@@ -159,8 +258,15 @@ validForm = () => {
     cardError.classList.remove("error");
   }
   //exp
-  if (exp.value == "") {
+  let expVal = exp.value;
+  //EXPIRATION DATE ONLY VERIFIES CARDS FROM 2023 TO 2100
+  let validExp = /^(0[1-9]|1[0-2])\/(202[3-9]|20[3-9][0-9]|21[0-9]{2})$/;
+  if (expVal == "") {
     expError.innerText = "Please fill out this field!";
+    expError.classList.add("error");
+    validForm = false;
+  } else if (!validExp.test(expVal)) {
+    expError.innerText = "Please use a valid expiration date.";
     expError.classList.add("error");
     validForm = false;
   } else {
@@ -187,3 +293,8 @@ document
     event.preventDefault();
     validForm();
   });
+
+resetForm = () => {
+  // console.log("Testing!");
+  location.reload();
+};

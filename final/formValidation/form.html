@@ -40,7 +40,7 @@
         <p id="emailError">Must be a valid email address.</p> <br>
         <label for="password">Password: </label> 
         <input type="password" name="password" id="pw"> 
-        <p id="pwError">Must be at least 6 characters.</p> <br>
+        <p id="pwError">Must be between 8-10 characters.</p> <br>
         <label for="confirm">Verify Password: </label> 
         <input type="password" name="confirm" id="confirm"> 
         <p class="error" id="confirmError"></p> <br>
@@ -64,10 +64,10 @@
         <p id="stateError">Use 2 character abbreviation.</p> <br>
         <label for="zip">ZIP Code: </label> 
         <input type="text" name="zip" id="zip"> 
-        <p id="zipError">Use 5 or 9 digit ZIP code.</p> <br>
+        <p id="zipError">Use a 5 digit ZIP code.</p> <br>
         <label for="phone">Phone Number: </label> 
         <input type="text" name="phone" id="phone"> 
-        <p id="phoneError">Use 999-999-9999 format.</p> <br>
+        <p id="phoneError">Use xxx-xxx-xxxx format.</p> <br>
     </div>
     <div>
         <h2>Payment Information</h2>
@@ -89,7 +89,7 @@
     <div>
         <h2>Submit Registration</h2>
         <input type="submit" id="submit" value="Submit"></input>
-        <input type="reset" value="Reset"></input>
+        <input type="reset" value="Reset" onclick="resetForm()"></input>
          <h2 id="regComplete"></h2>
     </div>
     </form>
